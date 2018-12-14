@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<script src="../jquery-3.1.1.min.js"></script>
+<body>
+<form th:action="@{/login}" method="post">
+手机号:<input type="text" name="phone" id="phone" th:value="${mobile}"/>
+    <button type="button" th:onclick="send()">发送验证码</button></br>
+验证码:<input type="text" name="sms" /></br>
+    <!--/*@thymesVar id="sms" type=""*/-->
+    <span th:text="${sms}"></span><br>
+    <input type="submit" value="登录"/>
+
+</form>
+</body>
+
+<script type="application/javascript">
+    function send(){
+
+        var mobile=document.getElementById("phone").value;
+       window.location.href="/send/"+mobile;
+       alert("发送成功")
+    }
+
+
+</script>
+</html>
